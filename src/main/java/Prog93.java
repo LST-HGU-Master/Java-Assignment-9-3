@@ -1,5 +1,5 @@
 public class Prog93 {
-
+    // このクラスの変更・提出は不要です
     public static void main(String[] args) {
 
         InvisibleHero h;
