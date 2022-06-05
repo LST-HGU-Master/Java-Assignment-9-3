@@ -43,8 +43,8 @@ public class Prog93 {
 
 ### 実行例
 ```
-勇者??が誕生した! HP:120, isVisible: true
-勇者工太が誕生した! HP:120, isVisible: true
-勇者工太が誕生した! HP:150, isVisible: true
-勇者工太が誕生した! HP:150, isVisible: false
+勇者??が誕生した！ HP:120, isVisible: true
+勇者工太が誕生した！ HP:120, isVisible: true
+勇者工太が誕生した！ HP:150, isVisible: true
+勇者工太が誕生した！ HP:150, isVisible: false
 ```
