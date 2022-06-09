@@ -2,7 +2,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 import java.io.*;
-
+/**
+  * @version (20220609)
+ */
 public class Prog93Test {
 
     @Test
