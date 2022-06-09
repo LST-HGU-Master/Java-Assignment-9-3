@@ -19,21 +19,21 @@ Heroクラスに以下の３つのコンストラクタを追加し、InvisibleH
 |----------------------------------------|---------------------------------------------------------------------------------|
 | String name, int hp, boolean isVisible | 引数のhpでhpフィールドを初期化する、引数のnameでnameフィールドを初期化する, 引数のisVisibleでisVisibleフィールドを初期化する。 | 
 
-### Prog93 (提出不要)
+### Prog93 (このコードの提出は不要)
 ```java
 public class Prog93 {
-    // このクラスの変更・提出は不要です
+
     public static void main(String[] args) {
 
         InvisibleHero h;
         h = new InvisibleHero();
-        System.out.println("勇者" + h.name + "が誕生した! HP:" + h.hp isVisible: " + h.isVisible);
+        System.out.println("勇者" + h.name + "が誕生した！ HP:" + h.hp isVisible: " + h.isVisible);
         h = new InvisibleHero("工太");
-        System.out.println("勇者" + h.name + "が誕生した! HP:" + h.hp + ", isVisible: " + h.isVisible);
+        System.out.println("勇者" + h.name + "が誕生した！ HP:" + h.hp + ", isVisible: " + h.isVisible);
         h = new InvisibleHero("工太", 150);
-        System.out.println("勇者" + h.name + "が誕生した! HP:" + h.hp + ", isVisible: " + h.isVisible);
+        System.out.println("勇者" + h.name + "が誕生した！ HP:" + h.hp + ", isVisible: " + h.isVisible);
         h = new InvisibleHero("工太", 150, false);
-        System.out.println("勇者" + h.name + "が誕生した! HP:" + h.hp + ", isVisible: " + h.isVisible);
+        System.out.println("勇者" + h.name + "が誕生した！ HP:" + h.hp + ", isVisible: " + h.isVisible);
 
     }
 
