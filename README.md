@@ -17,7 +17,10 @@ Heroクラスに以下の３つのコンストラクタを追加し、InvisibleH
 
 | 引数リスト                                  | 処理内容                                                                            |
 |----------------------------------------|---------------------------------------------------------------------------------|
-| String name, int hp, boolean isVisible | 引数のhpでhpフィールドを初期化する、引数のnameでnameフィールドを初期化する, 引数のisVisibleでisVisibleフィールドを初期化する。 | 
+| なし                 | 親クラスのコンストラクタを呼び出す。 | 
+| String name         | 親クラスのコンストラクタを呼び出す。   | 
+| String name, int hp | 親クラスのコンストラクタを呼び出す。   | 
+| String name, int hp, boolean isVisible | 親クラスのコンストラクタを呼び出す。引数のisVisibleでisVisibleフィールドを初期化する。 | 
 
 ### Prog93 (このコードの提出は不要)
 ```java
