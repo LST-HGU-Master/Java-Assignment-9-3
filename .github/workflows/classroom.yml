@@ -1,0 +1,115 @@
+name: Autograding Tests
+'on':
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+    - name: testHeroConstr1
+      id: testheroconstr1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testHeroConstr1
+        setup-command: ''
+        command: sudo locale-gen ja_JP.UTF-8 && export LANG=ja_JP.UTF-8 && sudo update-locale
+          && gradle test --tests "HeroTest.testConstructor1"
+        timeout: 10
+        max-score: 2
+    - name: testHeroConstr2
+      id: testheroconstr2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testHeroConstr2
+        setup-command: ''
+        command: sudo locale-gen ja_JP.UTF-8 && export LANG=ja_JP.UTF-8 && sudo update-locale
+          && gradle test --tests "HeroTest.testConstructor2"
+        timeout: 10
+        max-score: 2
+    - name: testHeroConstr3
+      id: testheroconstr3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testHeroConstr3
+        setup-command: ''
+        command: sudo locale-gen ja_JP.UTF-8 && export LANG=ja_JP.UTF-8 && sudo update-locale
+          && gradle test --tests "HeroTest.testConstructor3"
+        timeout: 10
+        max-score: 2
+    - name: testInvsblHeroConstr1
+      id: testinvsblheroconstr1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testInvsblHeroConstr1
+        setup-command: ''
+        command: sudo locale-gen ja_JP.UTF-8 && export LANG=ja_JP.UTF-8 && sudo update-locale
+          && gradle test --tests "InvisibleHeroTest.testConstructor1"
+        timeout: 10
+        max-score: 1
+    - name: testInvsblHeroConstr2
+      id: testinvsblheroconstr2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testInvsblHeroConstr2
+        setup-command: ''
+        command: sudo locale-gen ja_JP.UTF-8 && export LANG=ja_JP.UTF-8 && sudo update-locale
+          && gradle test --tests "InvisibleHeroTest.testConstructor2"
+        timeout: 10
+        max-score: 1
+    - name: testInvsblHeroConstr3
+      id: testinvsblheroconstr3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testInvsblHeroConstr3
+        setup-command: ''
+        command: sudo locale-gen ja_JP.UTF-8 && export LANG=ja_JP.UTF-8 && sudo update-locale
+          && gradle test --tests "InvisibleHeroTest.testConstructor3"
+        timeout: 10
+        max-score: 1
+    - name: testInvsblHeroConstr4
+      id: testinvsblheroconstr4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testInvsblHeroConstr4
+        setup-command: ''
+        command: sudo locale-gen ja_JP.UTF-8 && export LANG=ja_JP.UTF-8 && sudo update-locale
+          && gradle test --tests "InvisibleHeroTest.testConstructor4"
+        timeout: 10
+        max-score: 2
+    - name: testMain
+      id: testmain
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testMain
+        setup-command: ''
+        command: sudo locale-gen ja_JP.UTF-8 && export LANG=ja_JP.UTF-8 && sudo update-locale
+          && gradle test --tests "Prog93Test.testHelloWorld"
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTHEROCONSTR1_RESULTS: "${{steps.testheroconstr1.outputs.result}}"
+        TESTHEROCONSTR2_RESULTS: "${{steps.testheroconstr2.outputs.result}}"
+        TESTHEROCONSTR3_RESULTS: "${{steps.testheroconstr3.outputs.result}}"
+        TESTINVSBLHEROCONSTR1_RESULTS: "${{steps.testinvsblheroconstr1.outputs.result}}"
+        TESTINVSBLHEROCONSTR2_RESULTS: "${{steps.testinvsblheroconstr2.outputs.result}}"
+        TESTINVSBLHEROCONSTR3_RESULTS: "${{steps.testinvsblheroconstr3.outputs.result}}"
+        TESTINVSBLHEROCONSTR4_RESULTS: "${{steps.testinvsblheroconstr4.outputs.result}}"
+        TESTMAIN_RESULTS: "${{steps.testmain.outputs.result}}"
+      with:
+        runners: testheroconstr1,testheroconstr2,testheroconstr3,testinvsblheroconstr1,testinvsblheroconstr2,testinvsblheroconstr3,testinvsblheroconstr4,testmain
